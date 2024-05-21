@@ -19,7 +19,7 @@ spec:
       - name: nginx
         image: leeinhong9512/panda-backend:780d167a4ff8ef4d40ddc57fd74c471b4374870a
         ports:
-        - containerPort: 80  # Nginx가 사용하는 포트
+        - containerPort: 8081  # Nginx가 사용하는 포트
 
 ---
 
@@ -34,8 +34,8 @@ spec:
     app: nginx
   ports:
     - protocol: TCP
-      port: 80  # 서비스에 노출되는 포트
-      targetPort: 80  # 파드에 포워딩되는 포트
+      port: 8081  # 서비스에 노출되는 포트
+      targetPort: 8081  # 파드에 포워딩되는 포트
       nodePort: 31000  # 변경 가능: 노드 포트 번호 (30000 ~ 32767 사이의 값을 선택)
   type: NodePort  # 서비스 유형을 NodePort로 변경
   
