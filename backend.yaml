@@ -20,6 +20,12 @@ spec:
         image: leeinhong9512/panda-backend:7ef2a5942c7d6f82ada6a9124b0f288be05ef01f
         ports:
         - containerPort: 8081  # Nginx가 사용하는 포트
+  strategy:
+    type: RollingUpdate  # 롤링 업데이트 전략을 사용
+    rollingUpdate:
+      maxSurge: 1  # 최대로 허용할 추가 파드 수
+      maxUnavailable: 0  # 최대 허용되는 일시적으로 사용 불가능한 파드 수
+
 
 ---
 
