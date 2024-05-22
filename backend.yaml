@@ -2,29 +2,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: aution-deployment
   labels:
-    app: nginx
+    app: aution
 spec:
-  replicas: 2  # 변경 가능: 원하는 파드 수
+  replicas: 1  # 변경 가능: 원하는 파드 수
   selector:
     matchLabels:
-      app: nginx
+      app: aution
   template:
     metadata:
       labels:
-        app: nginx
+        app: aution
     spec:
       containers:
-      - name: nginx
+      - name: aution
         image: leeinhong9512/panda-backend:1936a82e24d17051f1212606dc09f28dcddc2e30
         ports:
         - containerPort: 8081  # Nginx가 사용하는 포트
-  strategy:
-    type: RollingUpdate  # 롤링 업데이트 전략을 사용
-    rollingUpdate:
-      maxSurge: 1  # 최대로 허용할 추가 파드 수
-      maxUnavailable: 0  # 최대 허용되는 일시적으로 사용 불가능한 파드 수
+
 
 
 ---
@@ -34,10 +30,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-service
+  name: aution-service
 spec:
   selector:
-    app: nginx
+    app: aution
   ports:
     - protocol: TCP
       port: 8081  # 서비스에 노출되는 포트
