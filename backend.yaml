@@ -2,21 +2,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aution-deployment
+  name: auction-deployment
   labels:
-    app: aution
+    app: auction
 spec:
   replicas: 1  # 변경 가능: 원하는 파드 수
   selector:
     matchLabels:
-      app: aution
+      app: auction
   template:
     metadata:
       labels:
-        app: aution
+        app: auction
     spec:
       containers:
-      - name: aution
+      - name: auction
         image: leeinhong9512/panda-backend:1936a82e24d17051f1212606dc09f28dcddc2e30
         ports:
         - containerPort: 8081  # Nginx가 사용하는 포트
@@ -30,10 +30,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: aution-service
+  name: auction-service
 spec:
   selector:
-    app: aution
+    app: auction
   ports:
     - protocol: TCP
       port: 8081  # 서비스에 노출되는 포트
