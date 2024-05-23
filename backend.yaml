@@ -20,6 +20,14 @@ spec:
         image: leeinhong9512/panda-backend:b5de72d3feb4ad6f2900497a29f11051b730da31
         ports:
         - containerPort: 8081  # Nginx가 사용하는 포트
+        volumeMounts:
+        - name: tz-seoul
+          mountPath: /etc/localtime
+      volumes:
+      - name: tz-seoul
+        hostPath:
+          path: /usr/share/zoneinfo/Asia/Seoul
+        
 
 
 
