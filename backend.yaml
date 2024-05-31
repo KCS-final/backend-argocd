@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: auction
-        image: leeinhong9512/panda-backend:a5e54326051ed481d9185d1f0648623c93fc5b60
+        image: leeinhong9512/panda-backend:1d6c895586fca3f30f63bd7eb21f1c4d9ac2bc30
         ports:
         - containerPort: 8081  # Nginx가 사용하는 포트
         volumeMounts:
